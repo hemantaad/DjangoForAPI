@@ -41,11 +41,18 @@ INSTALLED_APPS = [
     # Third party app
     'rest_framework.authtoken',
     'rest_framework',
-    "dj_rest_auth",
+    'dj_rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth.registration',
+
 
     #Local
     'posts.apps.PostsConfig',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -140,3 +147,6 @@ REST_FRAMEWORK = {
     ],
 }
 
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+SITE_ID = 1
