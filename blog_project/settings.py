@@ -38,8 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'posts.apps.PostsConfig',
+    # Third party app
+    'rest_framework.authtoken',
     'rest_framework',
+    "dj_rest_auth",
+
+    #Local
+    'posts.apps.PostsConfig',
 ]
 
 MIDDLEWARE = [
@@ -128,6 +133,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
     'rest_framework.permissions.IsAuthenticated',
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+    'rest_framework.authentication.SessionAuthentication',
+    'rest_framework.authentication.TokenAuthentication',
+    ],
 }
 
